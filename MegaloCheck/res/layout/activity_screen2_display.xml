@@ -195,18 +195,33 @@
             android:layout_height="wrap_content"
             android:text="@string/cal_c10" 
              />
-         <CheckBox
-            android:id="@+id/cal_c11"
-            android:layout_width="wrap_content"
+         
+       <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/cal_c11"
-              />
+            android:orientation="horizontal" >
+         
+         <CheckBox
+             android:id="@+id/cal_c11"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:paddingBottom="0dp"
+             android:paddingTop="0dp"
+             android:text="@string/cal_c11" />
+
+            <TextView
+                android:id="@+id/cal_O2_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/cal_O2"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+		</LinearLayout>
+          
           <CheckBox
             android:id="@+id/cal_c12"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/cal_c12" 
-             />
+            android:text="@string/cal_c12" />
 
      </LinearLayout>
 

@@ -37,12 +37,12 @@
     <string name="tx_DecoPress">3000 psi</string>
     <string name="tx_DecoMix">50/00</string>
     <string name="tx_DecoMOD"> 70 MOD </string>
-    <string name="cal_c1">Sensors, Carriage are DRY</string>
+    <string name="cal_c1">Sensors are DRY</string>
     <string name="cal_c2">Power on Primary, Secondary</string>
     <string name="cal_c3">Verify SeaLevel (Shearwater)</string>
     <string name="cal_c4">Confirm O2% in Meg/SW = </string>
     <string name="cal_O2">98%</string>
-    <string name="cal_c5">Confirm Ambient: Remove head cap/carriage and expose cells for acclimation to ambient air</string>
+    <string name="cal_c5">Confirm Ambient: Remove head cap/carriage and expose cells to ambient air</string>
     <string name="cal_c6">Perform Ambient Air Calibration</string>
     <string name="cal_c7">Confirm Air Calibration</string>
     <string name="cal_ambient_s1_txt">S1-mV-21%</string>
@@ -54,7 +54,7 @@
     <string name="cal_c8">Assemble head, connect head only O2 Calibration Kit</string>
     <string name="cal_c9">Connect Trimix Analyzer to head only calibration output cap</string>
     <string name="cal_c10">Turn on OXYGEN</string>
-    <string name="cal_c11">Confirm MAXIMUM OXYGEN with Analyzer</string>
+    <string name="cal_c11">Confirm O2 flow = </string>
     <string name="cal_c12">Disconnect Analyzer from output plug to ensure no carriage backpressure</string>
     <string name="cal_c13">Perform 100% O2 Calibration</string>
     <string name="cal_c14">Confirm 100% Calibration</string>
@@ -75,7 +75,7 @@
     <string name="title_activity_sys_screen">System Check</string>
     
     <string name="Mix_Oxygen">O2%=</string>
-    <string name="Mix_OxygenPercent">NULL</string>
+    <string name="Mix_OxygenPercent">00</string>
     <string name="Mix_OxygenCylVol">Cyl. Vol(L)=</string>
     <string name="Mix_OxygenCylVolNum">3</string>
     <string name="Mix_OxygenPSI">PSI=</string>

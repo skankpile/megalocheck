@@ -26,12 +26,18 @@ public class Screen2_Activity extends Activity {
 		
 		//get Oxygen Percent from MixMenu or display warning
 		TextView O2Per = (TextView) findViewById(R.id.cal_O2);
+		TextView O2Per2 = (TextView) findViewById(R.id.cal_O2_2);
 		O2Per.setText(" " + MainActivity.MainOxygenPercent + "%");
+		O2Per2.setText(" " + MainActivity.MainOxygenPercent + "%");
 		if(MainActivity.MainOxygenPercent<=0){
 			O2Per.setTextColor(Color.RED);
 			O2Per.setText("Analyze O2!");
+			O2Per2.setTextColor(Color.RED);
+			O2Per2.setText("Analyze O2!");
 			}
-			else{ O2Per.setTextColor(Color.rgb(34, 139, 34));
+			else{ 
+				O2Per.setTextColor(Color.rgb(34, 139, 34));
+				O2Per2.setTextColor(Color.rgb(34, 139, 34));
 			}
 
 		// find the check boxes on P2
