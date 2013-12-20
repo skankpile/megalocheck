@@ -1,0 +1,362 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ScrollView1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".Screen2_Activity" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="bottom"
+        android:orientation="vertical" >
+        
+        <LinearLayout
+        android:layout_width="0px"
+        android:layout_height="0px"
+        android:orientation="vertical" 
+        android:focusableInTouchMode="true"
+        android:focusable="true">
+        <requestFocus/>
+        </LinearLayout>
+          
+
+        <CheckBox
+            android:id="@+id/cal_c1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="0dp"
+            android:paddingTop="0dp"
+            android:text="@string/cal_c1"
+             />
+            
+	
+        <CheckBox
+            android:id="@+id/cal_c2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="0dp"
+            android:paddingTop="0dp"
+            android:text="@string/cal_c2"
+             />
+
+        <CheckBox
+            android:id="@+id/cal_c3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="0dp"
+            android:paddingTop="0dp"
+            android:text="@string/cal_c3"
+             />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <CheckBox
+                android:id="@+id/cal_c4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="0dp"
+                android:paddingTop="0dp"
+                android:text="@string/cal_c4" 
+                 />
+
+            <TextView
+                android:id="@+id/cal_O2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/cal_O2"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+        </LinearLayout>
+
+        <CheckBox
+            android:id="@+id/cal_c5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="0dp"
+            android:text="@string/cal_c5"
+              />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:layout_marginLeft="5dip" android:layout_marginRight="5dip" android:layout_marginTop="5dip"
+            android:layout_weight="4.71" >
+
+            <TextView
+                android:id="@+id/cal_c6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:paddingBottom="5dp"
+                android:layout_alignParentLeft="true"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/cal_c6" />
+
+            <TextView
+                android:id="@+id/cal_ambient_s1_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/cal_c6"
+                android:layout_marginLeft="16dp"
+                android:text="@string/cal_ambient_s1_txt"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+            <TextView
+                android:id="@+id/cal_ambient_s2_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/cal_c6"
+                android:layout_centerHorizontal="true"
+                android:text="@string/cal_ambient_s2_txt"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+            <EditText
+                android:id="@+id/cal_ambient_s2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/cal_ambient_s2_txt"
+                android:layout_below="@+id/cal_ambient_s2_txt"
+                android:inputType="numberDecimal"
+                android:selectAllOnFocus="true"
+                android:hint="@string/cal_ambient_s2"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <TextView
+                android:id="@+id/cal_ambient_s3_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/cal_c6"
+                android:layout_marginLeft="19dp"
+                android:layout_toRightOf="@+id/cal_ambient_s2_txt"
+                android:text="@string/cal_ambient_s3_txt"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+            <EditText
+                android:id="@+id/cal_ambient_s3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/cal_ambient_s2"
+                android:layout_alignBottom="@+id/cal_ambient_s2"
+                android:layout_alignLeft="@+id/cal_ambient_s3_txt"
+                android:inputType="numberDecimal"
+                android:selectAllOnFocus="true"
+                android:hint="@string/cal_ambient_s3"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <EditText
+                android:id="@+id/cal_ambient_s1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/cal_ambient_s1_txt"
+                android:layout_below="@+id/cal_ambient_s1_txt"
+                android:inputType="numberDecimal"
+                android:selectAllOnFocus="true"
+                android:hint="@string/cal_ambient_s1"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <CheckBox
+                android:id="@+id/cal_c7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/cal_ambient_s2"
+                android:onClick="CalculateSaturated"
+                android:text="@string/cal_c7"/>
+
+        </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <CheckBox
+            android:id="@+id/cal_c8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cal_c8" 
+             />
+        <CheckBox
+            android:id="@+id/cal_c9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cal_c9" 
+             />
+         <CheckBox
+            android:id="@+id/cal_c10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cal_c10" 
+             />
+         <CheckBox
+            android:id="@+id/cal_c11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cal_c11"
+              />
+          <CheckBox
+            android:id="@+id/cal_c12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cal_c12" 
+             />
+
+     </LinearLayout>
+
+     <RelativeLayout
+         android:layout_width="match_parent"
+         android:layout_height="0dip"
+         android:layout_marginLeft="5dip"
+         android:layout_marginRight="5dip"
+         android:layout_marginTop="5dip"
+         android:layout_weight="3.86" >
+
+            <TextView
+                android:id="@+id/cal_c13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:paddingBottom="5dp"
+                android:paddingTop="10dp"
+                android:text="@string/cal_c13"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <TextView
+                android:id="@+id/cal_max_s1_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/cal_c13"
+                android:layout_marginLeft="16dp"
+                android:text="@string/cal_max_s1_txt"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+            <TextView
+                android:id="@+id/cal_max_s2_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/cal_c13"
+                android:layout_centerHorizontal="true"
+                android:text="@string/cal_max_s2_txt"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+            <EditText
+                android:id="@+id/cal_max_s2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/cal_max_s2_txt"
+                android:layout_below="@+id/cal_max_s2_txt"
+                android:hint="@string/cal_max_s2"
+                android:inputType="numberDecimal"
+                android:selectAllOnFocus="true"
+                android:textAppearance="?android:attr/textAppearanceLarge" >
+
+                
+            </EditText>
+
+            <TextView
+                android:id="@+id/cal_max_s3_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/cal_c13"
+                android:layout_marginLeft="19dp"
+                android:layout_toRightOf="@+id/cal_max_s2_txt"
+                android:text="@string/cal_max_s3_txt"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+            <EditText
+                android:id="@+id/cal_max_s3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/cal_max_s2"
+                android:layout_alignBottom="@+id/cal_max_s2"
+                android:layout_alignLeft="@+id/cal_max_s3_txt"
+                android:hint="@string/cal_max_s3"
+                android:inputType="numberDecimal"
+                android:selectAllOnFocus="true"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <EditText
+                android:id="@+id/cam_max_s1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/cal_max_s1_txt"
+                android:layout_below="@+id/cal_max_s1_txt"
+                android:hint="@string/cal_max_s1"
+                android:inputType="numberDecimal"
+                android:selectAllOnFocus="true"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <CheckBox
+                android:id="@+id/cal_c14"
+                android:layout_width="wrap_content"
+                android:layout_height="45dip"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/cal_max_s2"
+                android:gravity="bottom"
+                android:paddingTop="0dip"
+                android:paddingBottom="4dip"
+                android:text="@string/cal_c14" />
+
+            <TextView
+                android:id="@+id/cal_max_theo_s1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignRight="@+id/cam_max_s1"
+                android:layout_below="@+id/cam_max_s1"
+                android:text="@string/cal_max_theo_s1"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+            <TextView
+                android:id="@+id/cal_max_theo_s2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignRight="@+id/cal_max_s2"
+                android:layout_below="@+id/cal_max_s2"
+                android:text="@string/cal_max_theo_s2"
+
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+            <TextView
+                android:id="@+id/cal_max_theo_s3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignRight="@+id/cal_max_s3"
+                android:layout_below="@+id/cal_max_s3"
+                android:text="@string/cal_max_theo_s3"
+
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        </RelativeLayout>
+         
+         <CheckBox
+            android:id="@+id/cal_c15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="0dp"
+            android:paddingTop="0dp"
+            android:text="@string/cal_c15"
+              />
+                
+        <CheckBox
+            android:id="@+id/cal_c16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="0dp"
+            android:paddingTop="0dp"
+            android:text="@string/cal_c16" 
+             />
+
+
+    </LinearLayout>
+
+</ScrollView>

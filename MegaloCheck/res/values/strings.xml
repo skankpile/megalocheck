@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">MegaloCheck</string>
+    <string name="set_defaults">Set Defaults</string>
+    <string name="email_stats">Email Stats</string>
+    <string name="rec_cell_data">Rec.Cell Data</string>
+    <string name="reset">Reset, Clear Checklists</string>
+    <string name="new_dive">Prepare Next Dive</string>
+    <string name="save">Save</string>
+    
+    <string name="cell_log">Cell Log</string>
+    <string name="button_Calibration">Calibrate</string>
+    <string name="title_activity_screen2_">Head Calibration</string>
+    <string name="Text2">Text2</string>
+    <string name="tx_Status"> STATUS: Perform PreDive</string>
+    <string name="button_Gas">Gas</string>
+    <string name="button_System">System</string>
+    <string name="tx_scrubber"> Scrubber Remaining</string>
+    <string name="tx_scrubberCal">240min </string>
+    <string name="tx_O2"> Oxygen</string>
+    <string name="tx_O2Rate">0.8L/min</string>
+    <string name="tx_O2Press">2800 psi</string>
+    <string name="tx_O2Remain">550min </string>
+    <string name="tx_Diluent"> Diluent</string>
+    <string name="tx_DillMix">21/35</string>
+    <string name="tx_DillPress">3001 psi</string>
+    <string name="tx_DillPO2Flush">1.0 PO2</string>
+    <string name="tx_DillMOD">160 MOD </string>
+    <string name="tx_Bail"> Bailout</string>
+    <string name="tx_Bail_PO2">1.4 PO2</string>
+    <string name="tx_BailPress">3000 psi</string>
+    <string name="tx_BailMix">21/35</string>
+    <string name="tx_BailMOD">190 MOD </string>
+    <string name="tx_Deco"> Deco</string>
+    <string name="tx_Deco_PO2">1.6 PO2</string>
+    <string name="tx_DecoPress">3000 psi</string>
+    <string name="tx_DecoMix">50/00</string>
+    <string name="tx_DecoMOD"> 70 MOD </string>
+    <string name="cal_c1">Sensors, Carriage are DRY</string>
+    <string name="cal_c2">Power on Primary, Secondary</string>
+    <string name="cal_c3">Verify SeaLevel (Shearwater)</string>
+    <string name="cal_c4">Confirm O2% in Meg/SW = </string>
+    <string name="cal_O2">98%</string>
+    <string name="cal_c5">Confirm Ambient: Remove head cap/carriage and expose cells for acclimation to ambient air</string>
+    <string name="cal_c6">Perform Ambient Air Calibration</string>
+    <string name="cal_c7">Confirm Air Calibration</string>
+    <string name="cal_ambient_s1_txt">S1-mV-21%</string>
+    <string name="cal_ambient_s1">Null</string>
+    <string name="cal_ambient_s2_txt">S2-mV-21%</string>
+    <string name="cal_ambient_s2">Null</string>
+    <string name="cal_ambient_s3_txt">S3-mV-21%</string>
+    <string name="cal_ambient_s3">Null</string>
+    <string name="cal_c8">Assemble head, connect head only O2 Calibration Kit</string>
+    <string name="cal_c9">Connect Trimix Analyzer to head only calibration output cap</string>
+    <string name="cal_c10">Turn on OXYGEN</string>
+    <string name="cal_c11">Confirm MAXIMUM OXYGEN with Analyzer</string>
+    <string name="cal_c12">Disconnect Analyzer from output plug to ensure no carriage backpressure</string>
+    <string name="cal_c13">Perform 100% O2 Calibration</string>
+    <string name="cal_c14">Confirm 100% Calibration</string>
+    <string name="cal_max_s1_txt">S1-mV-MAX</string>
+    <string name="cal_max_s1">Null</string>
+    <string name="cal_max_s2_txt">S2-mV-MAX</string>
+    <string name="cal_max_s2">Null</string>
+    <string name="cal_max_s3_txt">S3-mV-MAX</string>
+    <string name="cal_max_s3">Null</string>
+    <string name="cal_max_theo_s1">Null</string>
+    <string name="cal_max_theo_s2">Null</string>
+    <string name="cal_max_theo_s3">Null</string>
+    <string name="cal_c15">Calibrate Secondary at MAX O2</string>
+    <string name="cal_c16">Turn Off OXYGEN and remove Head only Calibration kit</string>
+    <string name="cal_button">Submit</string>
+    
+    <string name="title_activity_mix_screen">Analyze Gas</string>
+    <string name="title_activity_sys_screen">System Check</string>
+    
+    <string name="Mix_Oxygen">O2%=</string>
+    <string name="Mix_OxygenPercent">NULL</string>
+    <string name="Mix_OxygenCylVol">Cyl. Vol(L)=</string>
+    <string name="Mix_OxygenCylVolNum">3</string>
+    <string name="Mix_OxygenPSI">PSI=</string>
+    <string name="Mix_OxygenPSINum">1000</string>
+    <string name="Mix_Dill">Dill=</string>
+    <string name="Mix_DillO2num">21</string>
+    <string name="Mix_DillHEnum">00</string>
+    <string name="Mix_Dillspace">/</string>
+    <string name="Mix_DillPSI">PSI=</string>
+    <string name="Mix_DillPSINum">2500</string>
+    <string name="Mix_Bai1">Bailout=</string>
+    <string name="Mix_Bai1O2num">21</string>
+    <string name="Mix_BailHEnum">00</string>
+    <string name="Mix_Bailspace">/</string>
+    <string name="Mix_BailPSI">PSI=</string>
+    <string name="Mix_BailPSINum">2800</string>
+    <string name="Mix_Deco1">Deco=</string>
+    <string name="Mix_DecoO2num">50</string>
+    <string name="Mix_DecoHEnum">00</string>
+    <string name="Mix_Decospace">/</string>
+    <string name="Mix_DecoPSI">PSI=</string>
+    <string name="Mix_DecoPSINum">2800</string>
+    <string name="Mix_ButtonSubmit">Submit</string>
+
+    <string name="Sys_chk1">Check scrubber integrity / fill if needed</string>
+    <string name="Sys_chk0">Set scrubber duration in default settings</string>
+    <string name="Sys_ScrubberTxt">Record accumulated time on Scrubber:</string>
+    <string name="Sys_ScrubberAccMin">000</string>
+    <string name="Sys_ScrubberTxt2">Tot.Minutes</string>
+    <string name="Sys_ScrubberRemain"> Life Remain: </string>
+    <string name="Sys_ScrubberRemainNum">000</string>
+    <string name="Sys_ScrubberAddMin">Update</string>
+    <string name="Sys_ScrubberAddMinNum">000</string>
+    
+    <string name="Sys_chk2">Inspect all parts for dirt, deterioration, damage, and lubrication</string>
+    <string name="Sys_chk3">Mount cylinders and 1st stages</string>
+    <string name="Sys_chk4">Install BC and Backplate</string>
+    <string name="Sys_chk5">Mount Counterlungs</string>
+    <string name="Sys_chk6">Install ADV, secure Dill hose assembly</string>
+    <string name="Sys_chk7">Connect Wing inflator</string>
+    <string name="Sys_chk8">Conduct a breathing check of DSV/BOV/Loop, check function, mouthpiece. Confirm flow with no air leaks</string>
+    <string name="Sys_chk9">Install Loop assembly to Counterlung</string>
+    <string name="Sys_chk10">Connect BOV to QC6 assembly</string>
+    <string name="Sys_chk11">Install plenum spacer and moisture pads</string>
+    <string name="Sys_chk12">Install scrubber canister</string>
+    <string name="Sys_chk13">Inspect scrubber mating O-rings in sensor carriage cap</string>
+    <string name="Sys_chk14">Inspect sensors and wires, ensure sensors are screwed securely, no leaking KOH</string>
+    <string name="Sys_chk15">Install sensor moisture pad</string>
+    <string name="Sys_chk16">Inspect carriage O-Rings(red), ensure they are flush in carriage lands</string>
+    <string name="Sys_chk17">Assemble Head assembly, mount sensor carriage, ensure carriage cap is locked</string>
+    <string name="Sys_chk18">Positive pressure test head assembly</string>
+    <string name="Sys_chk19">Negative pressure test head assembly</string>
+    <string name="Sys_chk20">Inspect Battery connectors and housings</string>
+    <string name="Sys_chk21">Inspect Lid assembly integrity, O-rings, all fixed components</string>
+    <string name="Sys_chk22">Power on primary and secondary power supplies</string>
+    <string name="Sys_chk23">Install head into plenum and latch down</string>
+    <string name="Sys_chk24">Connect O2 to head and MAV</string>
+    <string name="Sys_chk25">Secure loop to head assembly</string>
+    <string name="Sys_chk26">Secure HUD to DSV/BOV</string>
+    <string name="Sys_chk27">Inspect all hand tight fittings</string>
+    <string name="Sys_chk28">Close OPV, perform positive pressure test</string>
+    <string name="Sys_chk29">Perform negative pressure test (30 sec)</string>
+    <string name="Sys_chk30">Slowly open O2 and dill valves</string>
+    <string name="Sys_chk31">Verify O2 man/bypass and ADV operation</string>
+    <string name="Sys_chk32">Check for HP/LP hose leaks, turn off valves, watch for pressure drop (2 minutes)</string>
+    <string name="Sys_chk33">Verify solenoid, turn on gas, set setpoint to 0.5, breathe on loop</string>
+    <string name="Sys_chk34">Verify Load and No load voltage above 5.8 (NiMh)</string>
+    <string name="Sys_chk35">Verify secondary/SW voltage within specification</string>
+    <string name="Sys_chk36">Secure displays/SW, Set setpoint to MAN, turn off gasses</string>
+    <string name="CCR_Type">Megalodon</string>
+    <string name="date_preformed">00/00/0000</string>
+    
+  
+    <string name="Sys_Submit">Submit</string>
+    
+    
+    
+    
+
+</resources>

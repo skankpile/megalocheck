@@ -1,0 +1,226 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".MixScreen" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal" >
+        
+        <LinearLayout
+        android:layout_width="0px"
+        android:layout_height="0px"
+        android:orientation="vertical" 
+        android:focusableInTouchMode="true"
+        android:focusable="true">
+        <requestFocus/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/Mix_Oxygen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:text="@string/Mix_Oxygen" />
+
+        <EditText
+            android:id="@+id/Mix_OxygenPercent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/Mix_OxygenPercent"
+            android:selectAllOnFocus="true"
+            android:inputType="numberSigned" />
+
+        <TextView
+            android:id="@+id/Mix_OxygenCylVol"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Mix_OxygenCylVol" />
+
+        <EditText
+            android:id="@+id/Mix_OxygenCylVolNum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/Mix_OxygenCylVolNum"
+            android:selectAllOnFocus="true"
+            android:inputType="numberSigned" />
+
+        <TextView
+            android:id="@+id/Mix_OxygenPSI"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Mix_OxygenPSI" />
+
+        <EditText
+            android:id="@+id/Mix_OxygenPSINum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/Mix_OxygenPSINum"
+            android:selectAllOnFocus="true"
+            android:inputType="numberSigned" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center" >
+        
+         <TextView
+            android:id="@+id/Mix_Dill"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:text="@string/Mix_Dill" />
+         
+        <EditText
+            android:id="@+id/Mix_DillO2num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/Mix_DillO2num"
+            android:selectAllOnFocus="true"
+            android:inputType="numberDecimal" />
+         
+         <TextView
+            android:id="@+id/Mix_Dillspace"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Mix_Dillspace" />
+         
+         <EditText
+            android:id="@+id/Mix_DillHEnum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/Mix_DillHEnum"
+            android:selectAllOnFocus="true"
+            android:inputType="numberDecimal" />
+         
+        <TextView
+            android:id="@+id/Mix_DillPSI"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Mix_DillPSI" />
+
+        <EditText
+            android:id="@+id/Mix_DillPSINum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/Mix_DillPSINum"
+            android:selectAllOnFocus="true"
+            android:inputType="numberDecimal" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center" >
+
+        <TextView
+            android:id="@+id/Mix_Bai1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Mix_Bai1" />
+
+        <EditText
+            android:id="@+id/Mix_Bai1O2num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/Mix_Bai1O2num"
+            android:selectAllOnFocus="true"
+            android:inputType="numberDecimal" >
+        </EditText>
+
+        <TextView
+            android:id="@+id/Mix_Bailspace"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Mix_Bailspace" />
+
+        <EditText
+            android:id="@+id/Mix_BailHEnum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/Mix_BailHEnum"
+            android:selectAllOnFocus="true"
+            android:inputType="numberDecimal" />
+
+        <TextView
+            android:id="@+id/Mix_BailPSI"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Mix_BailPSI" />
+
+        <EditText
+            android:id="@+id/Mix_BailPSINum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/Mix_BailPSINum"
+            android:selectAllOnFocus="true"
+            android:inputType="numberDecimal" />
+    </LinearLayout>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center" >
+
+        <TextView
+            android:id="@+id/Mix_Deco1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Mix_Deco1" />
+
+        <EditText
+            android:id="@+id/Mix_DecoO2num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/Mix_DecoO2num"
+            android:selectAllOnFocus="true"
+            android:inputType="numberDecimal" >
+        </EditText>
+
+        <TextView
+            android:id="@+id/Mix_Decospace"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Mix_Decospace" />
+
+        <EditText
+            android:id="@+id/Mix_DecoHEnum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/Mix_DecoHEnum"
+            android:selectAllOnFocus="true"
+            android:inputType="numberDecimal" />
+
+        <TextView
+            android:id="@+id/Mix_DecoPSI"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Mix_DecoPSI" />
+
+        <EditText
+            android:id="@+id/Mix_DecoPSINum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/Mix_DecoPSINum"
+            android:selectAllOnFocus="true"
+            android:inputType="numberDecimal" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+    </LinearLayout>
+
+</LinearLayout>

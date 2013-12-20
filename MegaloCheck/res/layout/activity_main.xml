@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="fill"
+    tools:context=".MainActivity" >
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        style="@android:attr/buttonBarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:background="?android:attr/dividerHorizontal"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/button_Gas"
+            style="@android:style/Widget.Holo.Button.Borderless"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".7"
+            android:minWidth="50dp"
+            android:onClick="LaunchMix"
+            android:text="@string/button_Gas"
+            android:textSize="25sp" />
+
+        <View
+            android:layout_width="1dip"
+            android:layout_height="20dip"
+            android:layout_marginBottom="4dip"
+            android:layout_marginTop="12dip"
+            android:background="#aaa" />
+
+        <Button
+            android:id="@+id/button_Calibration"
+            style="@android:style/Widget.Holo.Button.Borderless"
+            android:layout_width="25dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:minWidth="25dp"
+            android:onClick="LaunchCalibration"
+            android:text="@string/button_Calibration"
+            android:textSize="25sp" />
+
+        <View
+            android:layout_width="1dip"
+            android:layout_height="20dip"
+            android:layout_marginBottom="4dip"
+            android:layout_marginTop="12dip"
+            android:background="#aaa" />
+
+        <Button
+            android:id="@+id/button_System"
+            style="@android:style/Widget.Holo.Button.Borderless"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:minWidth="50dp"
+            android:onClick="LaunchSys"
+            android:text="@string/button_System"
+            android:textSize="25sp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tx_O2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tx_scrubber"
+        android:layout_below="@+id/tx_scrubber"
+        android:layout_marginTop="15dp"
+        android:text="@string/tx_O2"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/tx_O2Remain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/tx_scrubberCal"
+        android:layout_alignTop="@+id/tx_O2Press"
+        android:text="@string/tx_O2Remain"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/tx_Diluent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tx_O2"
+        android:layout_below="@+id/tx_O2"
+        android:layout_marginTop="15dp"
+        android:text="@string/tx_Diluent"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/tx_DillPO2Flush"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/tx_Diluent"
+        android:layout_toRightOf="@+id/tx_O2"
+        android:text="@string/tx_DillPO2Flush"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/tx_DillMix"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/tx_DillPO2Flush"
+        android:layout_alignBottom="@+id/tx_DillPO2Flush"
+        android:layout_alignLeft="@+id/tx_DillPress"
+        android:text="@string/tx_DillMix"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/tx_DillMOD"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/tx_O2Remain"
+        android:layout_alignTop="@+id/tx_DillMix"
+        android:text="@string/tx_DillMOD"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/tx_Bail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tx_Diluent"
+        android:layout_below="@+id/tx_DillPress"
+        android:layout_marginTop="15dp"
+        android:text="@string/tx_Bail"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/tx_BailMix"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/tx_Bail_PO2"
+        android:layout_alignLeft="@+id/tx_DillPress"
+        android:text="@string/tx_BailMix"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/tx_DillPress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tx_O2Press"
+        android:layout_below="@+id/tx_DillMix"
+        android:text="@string/tx_DillPress"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/tx_BailPress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tx_BailMix"
+        android:layout_below="@+id/tx_BailMix"
+        android:text="@string/tx_BailPress"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/tx_BailMOD"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/tx_Bail"
+        android:layout_alignLeft="@+id/tx_DillMOD"
+        android:text="@string/tx_BailMOD"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/tx_Deco"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tx_Bail"
+        android:layout_below="@+id/tx_BailPress"
+        android:layout_marginTop="15dp"
+        android:text="@string/tx_Deco"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/tx_Deco_PO2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tx_DillPO2Flush"
+        android:layout_alignTop="@+id/tx_Deco"
+        android:text="@string/tx_Deco_PO2"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/tx_Bail_PO2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tx_DillPO2Flush"
+        android:layout_alignTop="@+id/tx_Bail"
+        android:text="@string/tx_Bail_PO2"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/tx_DecoPress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tx_DecoMix"
+        android:layout_below="@+id/tx_DecoMix"
+        android:text="@string/tx_DecoPress"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/tx_DecoMOD"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/tx_Deco"
+        android:layout_alignRight="@+id/tx_BailMOD"
+        android:text="@string/tx_DecoMOD"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/tx_O2Press"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/tx_O2_Rate"
+        android:layout_alignBottom="@+id/tx_O2_Rate"
+        android:layout_alignRight="@+id/tx_scrubber"
+        android:text="@string/tx_O2Press"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/tx_O2_Rate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tx_DillPO2Flush"
+        android:layout_alignTop="@+id/tx_O2"
+        android:text="@string/tx_O2Rate"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/tx_DecoMix"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/tx_Deco_PO2"
+        android:layout_alignBottom="@+id/tx_Deco_PO2"
+        android:layout_alignLeft="@+id/tx_BailPress"
+        android:text="@string/tx_DecoMix"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tx_DecoPress"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="18dp"
+        android:background="?android:attr/dividerHorizontal"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/tx_Status"
+            android:layout_width="298dp"
+            android:layout_height="fill_parent"
+            android:text="@string/tx_Status"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tx_scrubberCal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/tx_O2"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="14dp"
+        android:text="@string/tx_scrubberCal"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/tx_scrubber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/linearLayout2"
+        android:layout_marginTop="16dp"
+        android:paddingLeft="0dp"
+        android:text="@string/tx_scrubber"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/linearLayout1"
+        android:background="?android:attr/dividerHorizontal" >
+
+        <TextView
+            android:id="@+id/CCR_Type"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".7"
+            android:text="@string/CCR_Type"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/date_preformed"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/date_preformed"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+    </LinearLayout>
+
+</RelativeLayout>

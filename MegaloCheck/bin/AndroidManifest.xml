@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.mittendorf.megalocheck"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="11"
+        android:targetSdkVersion="18" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppBaseTheme" >
+        <activity
+            android:name="com.mittendorf.megalocheck.MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.mittendorf.megalocheck.Screen2_Activity"
+            android:label="@string/title_activity_screen2_"
+            android:parentActivityName="com.mittendorf.megalocheck.MainActivity"
+            android:windowSoftInputMode="stateHidden" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.mittendorf.megalocheck.MainActivity" />
+        </activity>
+        <activity
+            android:name="com.mittendorf.megalocheck.MixScreen"
+            android:label="@string/title_activity_mix_screen"
+            android:parentActivityName="com.mittendorf.megalocheck.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.mittendorf.megalocheck.MainActivity" />
+        </activity>
+        <activity
+            android:name="com.mittendorf.megalocheck.SysScreen"
+            android:label="@string/title_activity_sys_screen"
+            android:parentActivityName="com.mittendorf.megalocheck.MainActivity"
+            android:windowSoftInputMode="stateHidden" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.mittendorf.megalocheck.MainActivity" />
+        </activity>
+    </application>
+
+</manifest>
