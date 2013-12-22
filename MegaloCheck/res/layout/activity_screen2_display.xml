@@ -82,16 +82,15 @@
             android:paddingBottom="0dp"
             android:text="@string/cal_c5"
               />
-        
-
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dip"
-            android:layout_marginLeft="5dip" android:layout_marginRight="5dip" android:layout_marginTop="5dip"
+            android:layout_marginLeft="5dip"
+            android:layout_marginRight="5dip"
+            android:layout_marginTop="5dip"
             android:background="#383838"
             android:layout_weight="4.71" >
-            
 
             <TextView
                 android:id="@+id/cal_c6"
@@ -176,9 +175,6 @@
                 android:text="@string/cal_c7"/>
 
         </RelativeLayout>
-        
-
-          
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
