@@ -43,7 +43,7 @@
     <string name="cal_c4">Confirm O2% in Meg/SW = </string>
     <string name="cal_O2">98%</string>
     <string name="cal_c5">Confirm Ambient: Remove head cap/carriage and expose cells to ambient air</string>
-    <string name="cal_c6">Perform Ambient Air Calibration</string>
+    <string name="cal_c6">Perform Ambient Air Calibration:</string>
     <string name="cal_c7">Confirm Air Calibration</string>
     <string name="cal_ambient_s1_txt">S1-mV-21%</string>
     <string name="cal_ambient_s1">Null</string>
@@ -56,7 +56,7 @@
     <string name="cal_c10">Turn on OXYGEN</string>
     <string name="cal_c11">Confirm O2 flow = </string>
     <string name="cal_c12">Disconnect Analyzer from output plug to ensure no carriage backpressure</string>
-    <string name="cal_c13">Perform 100% O2 Calibration</string>
+    <string name="cal_c13">Perform 100% O2 Calibration:</string>
     <string name="cal_c14">Confirm 100% Calibration</string>
     <string name="cal_max_s1_txt">S1-mV-MAX</string>
     <string name="cal_max_s1">Null</string>

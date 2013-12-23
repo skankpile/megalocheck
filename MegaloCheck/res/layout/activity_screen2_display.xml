@@ -85,7 +85,7 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="142dip"
             android:layout_marginLeft="5dip"
             android:layout_marginRight="5dip"
             android:layout_marginTop="0dip"
@@ -96,6 +96,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/cal_c6"
+                android:paddingTop="5dp"
                 android:layout_centerHorizontal="true"
                 android:text="@string/cal_ambient_s2_txt"
                 android:textAppearance="?android:attr/textAppearanceSmall" />
@@ -117,6 +118,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/cal_c6"
                 android:layout_marginLeft="19dp"
+                android:paddingTop="5dp"
                 android:layout_toRightOf="@+id/cal_ambient_s2_txt"
                 android:text="@string/cal_ambient_s3_txt"
                 android:textAppearance="?android:attr/textAppearanceSmall" />
@@ -149,6 +151,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/cal_c6"
+                android:paddingTop="5dp"
                 android:layout_toLeftOf="@+id/cal_ambient_s2_txt"
                 android:text="@string/cal_ambient_s1_txt"
                 android:layout_marginRight="16dp"
@@ -160,6 +163,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignLeft="@+id/cal_ambient_s1"
                 android:layout_below="@+id/cal_ambient_s2"
+                android:paddingTop="5dp"
                 android:onClick="CalculateSaturated"
                 android:text="@string/cal_c7" />
 

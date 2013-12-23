@@ -39,11 +39,15 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="85dp" >
+        android:layout_height="85dp"
+        android:layout_marginLeft="5dip"
+        android:layout_marginRight="5dip"
+        android:background="#383838" >
 
         <TextView
             android:id="@+id/Sys_ScrubberTxt"
             android:layout_width="match_parent"
+            android:paddingTop="5dip"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
