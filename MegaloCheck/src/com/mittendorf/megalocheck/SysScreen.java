@@ -122,19 +122,21 @@ public class SysScreen extends Activity {
 		//PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
 		//SharedPreferences DP = PreferenceManager.getDefaultSharedPreferences(this);
 		//final int buff = Integer.parseInt(DP.getString("ScrubberAccum", "242"));
-		PreferenceManager.getDefaultSharedPreferences(this).edit().putBoolean(PreferenceManager.KEY_HAS_SET_DEFAULT_VALUES, false).commit();
-		final int buff = 240;
+		//PreferenceManager.getDefaultSharedPreferences(this).edit().putBoolean(PreferenceManager.KEY_HAS_SET_DEFAULT_VALUES, false).commit();
+		final int buff = 222;
 		//final int addme = Integer.parseInt(updateTime.getText().toString());
 		
-		MainActivity.ScrubberAccum = Integer.parseInt(updateTime.getText().toString());
-		remainTime.setText(Integer.toString(MainActivity.ScrubberAccum));
-		updateTime.setText(Integer.toString(buff));
+		remainTime.setText(updateTime.getText().toString());
+		//remainTime.setText(Integer.toString(MainActivity.ScrubberAccum));
+		//updateTime.setText(Integer.toString(buff));
 		
-		if(MainActivity.ScrubberAccum < buff){
-		Button litlbutton = (Button) findViewById(R.id.Sys_ScrubberAddMin);
-		litlbutton.setText("Reset");
+		//if(MainActivity.ScrubberAccum < buff){
+		//Button litlbutton = (Button) findViewById(R.id.Sys_ScrubberAddMin);
+		//litlbutton.setText("Reset");
 		
-		}
+		MainActivity.ScrubberAccum = Integer.parseInt(remainTime.getText().toString());
+		
+		
 
 		
 	}

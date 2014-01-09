@@ -48,6 +48,15 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.mittendorf.megalocheck.MainActivity" />
         </activity>
+         <activity
+            android:name="com.mittendorf.megalocheck.prefs"
+            android:label="@string/title_prefs_sys_screen"
+            android:parentActivityName="com.mittendorf.megalocheck.MainActivity"
+            android:windowSoftInputMode="stateHidden" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.mittendorf.megalocheck.MainActivity" />
+        </activity>
     </application>
 
 </manifest>

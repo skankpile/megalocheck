@@ -59,7 +59,7 @@ public class MainActivity extends Activity {
 	public static boolean gascheck=false;
 	public static boolean Page2ChecksComplete = false;
 	public static boolean Page3ChecksComplete = false;
-	public static int ScrubberAccum = 10;					//in preferences
+	public static int ScrubberAccum = 0;					//in preferences
 	
 	
 	
@@ -72,20 +72,18 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 		
 		
-//WIP	//load default preferences
-		PreferenceManager.setDefaultValues(this, R.xml.preferences, true);
+	//load default preferences
+		PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
 		SharedPreferences DP = PreferenceManager.getDefaultSharedPreferences(this);
-		
-		//MainActivity.ScrubberAccum = Integer.parseInt(DP.getString("ScrubberAccum", "242"));
+	//	MainActivity.ScrubberAccum = Integer.parseInt(DP.getString("ScrubberAccum", "242"));
 		MainActivity.MainOxygenMetab = Double.parseDouble(DP.getString("MainOxygenMetab", ".5"));
 		MainActivity.MainMixDillPO2set = Double.parseDouble(DP.getString("MainMixDillPO2set", "1.9"));
 		MainActivity.MainMixBailPO2set = Double.parseDouble(DP.getString("MainMixBailPO2set", "1.9"));
 		MainActivity.MainMixDecoPO2set = Double.parseDouble(DP.getString("MainMixDecoPO2set", "1.9"));
 		
-		//only update this the first time
-		//PreferenceManager.getDefaultSharedPreferences(this).edit().putBoolean(PreferenceManager.KEY_HAS_SET_DEFAULT_VALUES, true).commit();
-		if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean(PreferenceManager.KEY_HAS_SET_DEFAULT_VALUES, true)){
-			MainActivity.ScrubberAccum = Integer.parseInt(DP.getString("ScrubberAccum", "242"));
+	//needs to run after defaults set to update dashboard/main
+		if (MainActivity.ScrubberAccum ==0){
+			MainActivity.ScrubberAccum = Integer.parseInt(DP.getString("ScrubberAccum", "242"));	
 		};
 		
 		
@@ -150,7 +148,14 @@ public class MainActivity extends Activity {
 		}
 		
 		//do other stuff
-		scrubcal.setText(Integer.toString(MainActivity.ScrubberAccum)+ "Min");
+		//on first load scrubber=0, set message to store defaults
+		if (MainActivity.ScrubberAccum ==0){
+			scrubcal.setText("Set Default");
+		}
+			else{ scrubcal.setText(Integer.toString(MainActivity.ScrubberAccum)+ "Min");	
+			};
+		
+		//scrubcal.setText(Integer.toString(MainActivity.ScrubberAccum)+ "Min");
 		o2press.setText(Integer.toString(MainActivity.MainOxygenPSI)+ " psi");
 		dillpress.setText(Integer.toString(MainActivity.MainMix_DillPSINum)+ " psi");
 		bailpress.setText(Integer.toString(MainActivity.MainMix_BailPSINum)+ " psi");
@@ -201,13 +206,10 @@ public class MainActivity extends Activity {
 			}else if(Page3ChecksComplete & Page2ChecksComplete & gascheck ){
 				String formattedDate = new SimpleDateFormat("MM-dd-yyyy HH:mm").format(Calendar.getInstance().getTime());
 				date.setText(formattedDate);
-			}
-				
-			
+			}					
 		}
 			
-
-
+	
 	//Load Menu Items, don't use in Android 10
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -227,9 +229,13 @@ public class MainActivity extends Activity {
 			case R.id.new_dive:
 				MainActivity.this.newdive(null);
 				return true;
+			case R.id.set_defaults:
+				Intent intent = new Intent(this, prefs.class);
+				startActivity(intent);
+				MainActivity.ScrubberAccum=0;
+				break;
 			}
-			return false;
-			
+			return false;		
 	}
 		
 	
@@ -336,17 +342,5 @@ public class MainActivity extends Activity {
 	date.setText("new dive selected");
 	}
 	
-	
-	//Default preferences
-	public class readit extends PreferenceActivity{
-		@Override
-		protected void onCreate(Bundle savedInstanceState){
-			super.onCreate(savedInstanceState);
-			addPreferencesFromResource(R.xml.preferences);	
-		}	
-	}
-	
-	
-	
-	
+		
 }

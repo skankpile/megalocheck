@@ -1,11 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
-    <EditTextPreference android:key="MainOxygenMetab" android:defaultValue="0.8"/>
-    <EditTextPreference android:key="MainMixDillPO2set" android:defaultValue="1.0"/>
-    <EditTextPreference android:key="MainMixBailPO2set" android:defaultValue="1.4"/>
-    <EditTextPreference android:key="MainMixDecoPO2set" android:defaultValue="1.6"/>
-    <EditTextPreference android:key="ScrubberAccum" android:defaultValue="666"/>
-    <EditTextPreference android:key="S1_genesis" android:defaultValue="365"/>
-    <EditTextPreference android:key="S2_genesis" android:defaultValue="365"/>
-    <EditTextPreference android:key="S3_genesis" android:defaultValue="365"/>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"  android:title="Default Preferences">
+    
+    <EditTextPreference
+         android:key="MainOxygenMetab"
+         android:defaultValue="0.8"
+         android:selectAllOnFocus="true"
+         android:inputType="numberDecimal"
+         android:title="Enter O2 Metabolism Rate L/Min"
+         android:summary="0.5 rest, 0.6-1.0 normal, 1.0-2.5 working"/>
+    
+    <EditTextPreference
+         android:key="MainMixDillPO2set"
+         android:defaultValue="1.0"
+         android:selectAllOnFocus="true"
+         android:inputType="numberDecimal"
+         android:title="Enter Diluent Max flush PO2"
+         android:summary="Recommended 1.0PO2 flush at max depth"/>
+
+    
+    <EditTextPreference
+         android:key="MainMixBailPO2set"
+         android:defaultValue="1.4"
+         android:selectAllOnFocus="true"
+         android:inputType="numberDecimal"
+         android:title="Enter Bailout Max PO2"/>
+    
+    <EditTextPreference
+         android:key="MainMixDecoPO2set"
+         android:defaultValue="1.6"
+         android:selectAllOnFocus="true"
+         android:inputType="numberDecimal"
+         android:title="Enter Deco Max PO2"/>
+    
+    <EditTextPreference
+         android:key="ScrubberAccum"
+         android:defaultValue="0"
+         android:selectAllOnFocus="true"
+         android:inputType="number"
+         android:title="Set Scrubber Duration"
+         android:summary="5.5lb=180min, 8lbs=300min (ISC conservative)"/>
+    
 </PreferenceScreen>

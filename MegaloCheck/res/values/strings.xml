@@ -73,6 +73,7 @@
     
     <string name="title_activity_mix_screen">Analyze Gas</string>
     <string name="title_activity_sys_screen">System Check</string>
+    <string name="title_prefs_sys_screen">Default Preferences</string>
     
     <string name="Mix_Oxygen">O2%</string>
     <string name="Mix_OxygenPercent">00</string>
@@ -102,7 +103,7 @@
 
     <string name="Sys_chk1">Check scrubber integrity / fill if needed</string>
     <string name="Sys_chk0">Set scrubber duration in default settings</string>
-    <string name="Sys_ScrubberTxt">Record accumulated time on Scrubber:</string>
+    <string name="Sys_ScrubberTxt">Set remaining time on scrubber:</string>
     <string name="Sys_ScrubberAccMin">000</string>
     <string name="Sys_ScrubberTxt2">Tot.Minutes</string>
     <string name="Sys_ScrubberRemain"> Life Remain: </string>
