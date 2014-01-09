@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.NavUtils;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -117,6 +118,11 @@ public class SysScreen extends Activity {
 		TextView updateTime = (TextView) findViewById(R.id.Sys_ScrubberAccMin);
 		TextView remainTime = (TextView) findViewById(R.id.Sys_ScrubberRemainNum);
 		
+		//load buff from scrubber preference default time
+		//PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
+		//SharedPreferences DP = PreferenceManager.getDefaultSharedPreferences(this);
+		//final int buff = Integer.parseInt(DP.getString("ScrubberAccum", "242"));
+		PreferenceManager.getDefaultSharedPreferences(this).edit().putBoolean(PreferenceManager.KEY_HAS_SET_DEFAULT_VALUES, false).commit();
 		final int buff = 240;
 		//final int addme = Integer.parseInt(updateTime.getText().toString());
 		

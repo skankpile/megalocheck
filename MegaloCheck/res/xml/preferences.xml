@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+    <EditTextPreference android:key="MainOxygenMetab" android:defaultValue="0.8"/>
+    <EditTextPreference android:key="MainMixDillPO2set" android:defaultValue="1.0"/>
+    <EditTextPreference android:key="MainMixBailPO2set" android:defaultValue="1.4"/>
+    <EditTextPreference android:key="MainMixDecoPO2set" android:defaultValue="1.6"/>
+    <EditTextPreference android:key="ScrubberAccum" android:defaultValue="666"/>
+    <EditTextPreference android:key="S1_genesis" android:defaultValue="365"/>
+    <EditTextPreference android:key="S2_genesis" android:defaultValue="365"/>
+    <EditTextPreference android:key="S3_genesis" android:defaultValue="365"/>
+</PreferenceScreen>

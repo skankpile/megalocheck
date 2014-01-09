@@ -8,6 +8,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.preference.PreferenceActivity;
+import android.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -21,28 +23,28 @@ public class MainActivity extends Activity {
 	public static int MainOxygenPercent = 0;
 	public static int MainOxygenCylVolume = 0;
 	public static int MainOxygenPSI = 0;
-	public static double MainOxygenMetab = 0.8;
+	public static double MainOxygenMetab = 0.8; //in preferences
 	public static double MinutesOfOxy = 0;
 	
 	//Diluent
 	public static double MainMix_DillO2num = 0;
 	public static int MainMix_DillHEnum = 0;
 	public static int MainMix_DillPSINum = 0;
-	public static double MainMixDillPO2set = 1.0;
+	public static double MainMixDillPO2set = 1.0;  //in preferences
 	public static double DillMOD = 0;
 	
 	//Bailout
 	public static double MainMix_Bai1O2num = 0;
 	public static int MainMix_BailHEnum = 0;
 	public static int MainMix_BailPSINum = 0;
-	public static double MainMixBailPO2set = 1.4;
+	public static double MainMixBailPO2set = 1.4;  //in preferences
 	public static double BailMod = 0;
 	
 	//Deco
 	public static int MainMix_DecoPSI = 0;
 	public static double MainMix_DecoO2num = 0;
 	public static int MainMix_DecoHEnum = 0;
-	public static double MainMixDecoPO2set = 1.6;
+	public static double MainMixDecoPO2set = 1.6;  //in preferences
 	public static double DecoMod = 0;
 	
 	//O2 Sensors
@@ -57,7 +59,9 @@ public class MainActivity extends Activity {
 	public static boolean gascheck=false;
 	public static boolean Page2ChecksComplete = false;
 	public static boolean Page3ChecksComplete = false;
-	public static int ScrubberAccum = 240;
+	public static int ScrubberAccum = 10;					//in preferences
+	
+	
 	
 	
 	
@@ -67,6 +71,33 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
+		
+//WIP	//load default preferences
+		PreferenceManager.setDefaultValues(this, R.xml.preferences, true);
+		SharedPreferences DP = PreferenceManager.getDefaultSharedPreferences(this);
+		
+		//MainActivity.ScrubberAccum = Integer.parseInt(DP.getString("ScrubberAccum", "242"));
+		MainActivity.MainOxygenMetab = Double.parseDouble(DP.getString("MainOxygenMetab", ".5"));
+		MainActivity.MainMixDillPO2set = Double.parseDouble(DP.getString("MainMixDillPO2set", "1.9"));
+		MainActivity.MainMixBailPO2set = Double.parseDouble(DP.getString("MainMixBailPO2set", "1.9"));
+		MainActivity.MainMixDecoPO2set = Double.parseDouble(DP.getString("MainMixDecoPO2set", "1.9"));
+		
+		//only update this the first time
+		//PreferenceManager.getDefaultSharedPreferences(this).edit().putBoolean(PreferenceManager.KEY_HAS_SET_DEFAULT_VALUES, true).commit();
+		if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean(PreferenceManager.KEY_HAS_SET_DEFAULT_VALUES, true)){
+			MainActivity.ScrubberAccum = Integer.parseInt(DP.getString("ScrubberAccum", "242"));
+		};
+		
+		
+		//need to add sensors to default parameters
+	   // <EditTextPreference android:key="S1_genesis" android:defaultValue="365"/>
+	   //<EditTextPreference android:key="S2_genesis" android:defaultValue="365"/>
+	   // <EditTextPreference android:key="S3_genesis" android:defaultValue="365"/>
+		
+
+	    
+	    
+	    
 		//initialize main buttons
 		Button bc = (Button) findViewById(R.id.button_Calibration);
 		Button gas = (Button) findViewById(R.id.button_Gas);
@@ -109,7 +140,7 @@ public class MainActivity extends Activity {
 		else {sys.setTextColor(Color.RED);
 			}
 		
-		//Set Status to red on load
+		//Set Status text and color
 		TextView txstatus =  (TextView) findViewById(R.id.tx_Status);
 		if(MainActivity.gascheck & MainActivity.Page2ChecksComplete & MainActivity.Page3ChecksComplete){
 			txstatus.setText("Status: System Ready");
@@ -176,6 +207,7 @@ public class MainActivity extends Activity {
 		}
 			
 
+
 	//Load Menu Items, don't use in Android 10
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -227,7 +259,8 @@ public class MainActivity extends Activity {
 	//-------------------------------------------------------------------------
 	public void reset (View view){
 
-			
+	//default preferences	
+	SharedPreferences DP = PreferenceManager.getDefaultSharedPreferences(this);		
 	//set status in preferences to unchecked for Calibrate page (p2)
 	SharedPreferences p2share = getApplicationContext().getSharedPreferences("p2share", android.content.Context.MODE_PRIVATE);	
 	SharedPreferences.Editor editor = p2share.edit();
@@ -261,25 +294,25 @@ public class MainActivity extends Activity {
 	MainActivity.MainOxygenPercent = 0;
 	MainActivity.MainOxygenCylVolume = 0;
 	MainActivity.MainOxygenPSI = 0;
-	MainActivity.MainOxygenMetab = 0.8;
+	//MainActivity.MainOxygenMetab = 0.8;
 	MainActivity.MinutesOfOxy = 0;
 	//Diluent
 	MainActivity.MainMix_DillO2num = 0;
 	MainActivity.MainMix_DillHEnum = 0;
 	MainActivity.MainMix_DillPSINum = 0;
-	MainActivity.MainMixDillPO2set = 1.0;
+	//MainActivity.MainMixDillPO2set = 1.0;
 	MainActivity.DillMOD = 0;
 	//Bailout
 	MainActivity.MainMix_Bai1O2num = 0;
 	MainActivity.MainMix_BailHEnum = 0;
 	MainActivity.MainMix_BailPSINum = 0;
-	MainActivity.MainMixBailPO2set = 1.4;
+	//MainActivity.MainMixBailPO2set = 1.4;
 	MainActivity.BailMod = 0;
 	//Deco
 	MainActivity.MainMix_DecoPSI = 0;
 	MainActivity.MainMix_DecoO2num = 0;
 	MainActivity.MainMix_DecoHEnum = 0;
-	MainActivity.MainMixDecoPO2set = 1.6;
+	//MainActivity.MainMixDecoPO2set = 1.6;
 	MainActivity.DecoMod = 0;
 	//O2 Sensors
 	MainActivity.MainSensor_1_ambient = 0;
@@ -292,7 +325,7 @@ public class MainActivity extends Activity {
 	MainActivity.gascheck=false;
 	MainActivity.Page2ChecksComplete = false;
 	MainActivity.Page3ChecksComplete = false;
-	MainActivity.ScrubberAccum = 240;
+	MainActivity.ScrubberAccum = Integer.parseInt(DP.getString("ScrubberAccum", "242"));
 	
 	onCreate(null);
 	}
@@ -302,5 +335,18 @@ public class MainActivity extends Activity {
 	TextView date = (TextView) findViewById(R.id.date_preformed);
 	date.setText("new dive selected");
 	}
+	
+	
+	//Default preferences
+	public class readit extends PreferenceActivity{
+		@Override
+		protected void onCreate(Bundle savedInstanceState){
+			super.onCreate(savedInstanceState);
+			addPreferencesFromResource(R.xml.preferences);	
+		}	
+	}
+	
+	
+	
 	
 }
