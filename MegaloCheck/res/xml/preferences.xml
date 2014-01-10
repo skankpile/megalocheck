@@ -18,7 +18,6 @@
          android:title="Enter Diluent Max flush PO2"
          android:summary="Recommended 1.0PO2 flush at max depth"/>
 
-    
     <EditTextPreference
          android:key="MainMixBailPO2set"
          android:defaultValue="1.4"
