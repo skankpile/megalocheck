@@ -6,15 +6,12 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.v4.app.NavUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
-import com.mittendorf.megalocheck.R;
 
 public class SysScreen extends Activity {
 	@Override
@@ -24,23 +21,19 @@ public class SysScreen extends Activity {
 		// Show the Up button in the action bar.
 		setupActionBar();
 
-		// find the check boxes on and set preferences P3	
+		// find the check boxes and set from preferences P3	
 		CheckBox[] cboxs = new CheckBox[37];
 		SharedPreferences p3share = getApplicationContext().getSharedPreferences("p3share", android.content.Context.MODE_PRIVATE);
-		for (int i= 0; i<37; i++){
+		for (int i= 1; i<37; i++){
 		int resId = getResources().getIdentifier("Sys_chk"+ i, "id", getPackageName());
-		//find the check box ID
 		cboxs[i] = (CheckBox) findViewById(resId);
-		//load from preferences to set initial checks
 		cboxs[i].setChecked(p3share.getBoolean("Sys_chk"+i,cboxs[i].isChecked()));
 		}
-		
 		
 		//scrubber time from main var on load
 		TextView remainTime = (TextView) findViewById(R.id.Sys_ScrubberRemainNum);
 		remainTime.setText(Integer.toString(MainActivity.ScrubberAccum));
 		
-		//do other stuff
 	}
 
 	/**
@@ -83,7 +76,7 @@ public class SysScreen extends Activity {
 	
 	//get check boxes and load values into preferences on submit
 	CheckBox[] cboxs = new CheckBox[37];
-	for (int i= 0; i<37; i++){
+	for (int i= 1; i<37; i++){
 	int resId = getResources().getIdentifier("Sys_chk"+ i, "id", getPackageName());
 	//find the check box ID
 	cboxs[i] = (CheckBox) findViewById(resId);
@@ -93,10 +86,10 @@ public class SysScreen extends Activity {
 	editor.commit();
 	
 	//check if all check boxes are checked
-	for (int i= 0; i<37; i++){
+	for (int i= 1; i<37; i++){
 	int resId = getResources().getIdentifier("Sys_chk"+ i, "id", getPackageName());
-	//find the check box ID
 	cboxs[i] = (CheckBox) findViewById(resId);
+	
 	//boolean stays true if all are checked
 	if(cboxs[i].isChecked()){
 		MainActivity.Page3ChecksComplete = true;}
@@ -105,43 +98,19 @@ public class SysScreen extends Activity {
 		i=37;
 		}
 	}
-	
-	if(MainActivity.ScrubberAccum >1){
-		//Setup SharedPreferences editor for SysScreen (p3)
-		//SharedPreferences p3share = getApplicationContext().getSharedPreferences("p3share", android.content.Context.MODE_PRIVATE);	
-		SharedPreferences.Editor editor2 = p3share.edit();
-			editor2.putBoolean("Sys_chk"+0,true);
-			editor2.commit();
-	};
-	
-	//go to main menu
+	//then go to main menu
 	Intent intent = new Intent(this, MainActivity.class);
 	startActivity(intent);
 	}
+	
 	
 	//called when button "Update" is clicked
 	public void ScrubberTime (View view){
 		
 		TextView updateTime = (TextView) findViewById(R.id.Sys_ScrubberAccMin);
 		TextView remainTime = (TextView) findViewById(R.id.Sys_ScrubberRemainNum);
-		
-		//final int buff = 222;
-		//final int addme = Integer.parseInt(updateTime.getText().toString());
-		
 		remainTime.setText(updateTime.getText().toString());
-		//remainTime.setText(Integer.toString(MainActivity.ScrubberAccum));
-		//updateTime.setText(Integer.toString(buff));
-		
-		//if(MainActivity.ScrubberAccum < buff){
-		//Button litlbutton = (Button) findViewById(R.id.Sys_ScrubberAddMin);
-		//litlbutton.setText("Reset");
-		
 		MainActivity.ScrubberAccum = Integer.parseInt(remainTime.getText().toString());
-		//MainActivity.ScrubLife = MainActivity.ScrubberAccum;
-		
-	
-
-		
 	}
 	
 }

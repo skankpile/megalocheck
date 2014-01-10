@@ -25,12 +25,6 @@
   
 
     <CheckBox
-        android:id="@+id/Sys_chk0"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/Sys_chk0" />
-
-    <CheckBox
         android:id="@+id/Sys_chk1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

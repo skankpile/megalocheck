@@ -8,7 +8,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -23,28 +22,28 @@ public class MainActivity extends Activity {
 	public static int MainOxygenPercent = 0;
 	public static int MainOxygenCylVolume = 0;
 	public static int MainOxygenPSI = 0;
-	public static double MainOxygenMetab = 0.8; //in preferences
+	public static double MainOxygenMetab = 0.8; 
 	public static double MinutesOfOxy = 0;
 	
 	//Diluent
 	public static double MainMix_DillO2num = 0;
 	public static int MainMix_DillHEnum = 0;
 	public static int MainMix_DillPSINum = 0;
-	public static double MainMixDillPO2set = 1.0;  //in preferences
+	public static double MainMixDillPO2set = 1.0;  
 	public static double DillMOD = 0;
 	
 	//Bailout
 	public static double MainMix_Bai1O2num = 0;
 	public static int MainMix_BailHEnum = 0;
 	public static int MainMix_BailPSINum = 0;
-	public static double MainMixBailPO2set = 1.4;  //in preferences
+	public static double MainMixBailPO2set = 1.4; 
 	public static double BailMod = 0;
 	
 	//Deco
 	public static int MainMix_DecoPSI = 0;
 	public static double MainMix_DecoO2num = 0;
 	public static int MainMix_DecoHEnum = 0;
-	public static double MainMixDecoPO2set = 1.6;  //in preferences
+	public static double MainMixDecoPO2set = 1.6;  
 	public static double DecoMod = 0;
 	
 	//O2 Sensors
@@ -60,8 +59,7 @@ public class MainActivity extends Activity {
 	public static boolean Page2ChecksComplete = false;
 	public static boolean Page3ChecksComplete = false;
 	public static boolean scrubber_set = false;
-	public static int ScrubberAccum = 0;				//in preferences	
-	
+	public static int ScrubberAccum = 0;				//in preferences, 0 on start controls logic	
 	
 	
 	//load the layout
@@ -69,31 +67,7 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		
-		
-	//load default preferences
-		PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
-		SharedPreferences DP = PreferenceManager.getDefaultSharedPreferences(this);
-	//	MainActivity.ScrubberAccum = Integer.parseInt(DP.getString("ScrubberAccum", "242"));
-		MainActivity.MainOxygenMetab = Double.parseDouble(DP.getString("MainOxygenMetab", ".5"));
-		MainActivity.MainMixDillPO2set = Double.parseDouble(DP.getString("MainMixDillPO2set", "1.9"));
-		MainActivity.MainMixBailPO2set = Double.parseDouble(DP.getString("MainMixBailPO2set", "1.9"));
-		MainActivity.MainMixDecoPO2set = Double.parseDouble(DP.getString("MainMixDecoPO2set", "1.9"));
-		
-	//needs to run after install & 1st default set to prompt update of defaults
-		if (MainActivity.ScrubberAccum <1){
-			MainActivity.ScrubberAccum = Integer.parseInt(DP.getString("ScrubberAccum", "0"));
-		};
-				
-		//need to add sensors to default parameters
-	   // <EditTextPreference android:key="S1_genesis" android:defaultValue="365"/>
-	   //<EditTextPreference android:key="S2_genesis" android:defaultValue="365"/>
-	   // <EditTextPreference android:key="S3_genesis" android:defaultValue="365"/>
-		
-
-	    
-	    
-	    
+	
 		//initialize main buttons
 		Button bc = (Button) findViewById(R.id.button_Calibration);
 		Button gas = (Button) findViewById(R.id.button_Gas);
@@ -113,7 +87,37 @@ public class MainActivity extends Activity {
 		TextView decomix = (TextView) findViewById(R.id.tx_DecoMix);
 		TextView scrubcal = (TextView) findViewById(R.id.tx_scrubberCal);
 		TextView date = (TextView) findViewById(R.id.date_preformed);
-	
+		
+		TextView o2rate = (TextView) findViewById(R.id.tx_O2_Rate);
+		TextView dillpo2flush = (TextView) findViewById(R.id.tx_DillPO2Flush);
+		TextView bailPO2 = (TextView) findViewById(R.id.tx_Bail_PO2);
+		TextView decomaxPO2 = (TextView) findViewById(R.id.tx_Deco_PO2);
+		
+	//load default preferences into variables
+		PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
+		SharedPreferences DP = PreferenceManager.getDefaultSharedPreferences(this);
+	//	MainActivity.ScrubberAccum = Integer.parseInt(DP.getString("ScrubberAccum", "242"));
+		MainActivity.MainOxygenMetab = Double.parseDouble(DP.getString("MainOxygenMetab", ".5"));
+		MainActivity.MainMixDillPO2set = Double.parseDouble(DP.getString("MainMixDillPO2set", "1.9"));
+		MainActivity.MainMixBailPO2set = Double.parseDouble(DP.getString("MainMixBailPO2set", "1.9"));
+		MainActivity.MainMixDecoPO2set = Double.parseDouble(DP.getString("MainMixDecoPO2set", "1.9"));
+		
+		//needs to run after install & 1st default set to prompt update of defaults
+		if (MainActivity.ScrubberAccum <1){
+			MainActivity.ScrubberAccum = Integer.parseInt(DP.getString("ScrubberAccum", "0"));
+		};
+		
+	//set textviews from default persistance
+		o2rate.setText(Double.toString(MainActivity.MainOxygenMetab)+" L/Min");
+		dillpo2flush.setText(Double.toString(MainActivity.MainMixDillPO2set)+" PO2");
+		bailPO2.setText(Double.toString(MainActivity.MainMixBailPO2set)+" PO2");
+		decomaxPO2.setText(Double.toString(MainActivity.MainMixDecoPO2set)+" PO2");
+				
+		//need to add sensors to default parameters
+	   // <EditTextPreference android:key="S1_genesis" android:defaultValue="365"/>
+	   //<EditTextPreference android:key="S2_genesis" android:defaultValue="365"/>
+	   // <EditTextPreference android:key="S3_genesis" android:defaultValue="365"/>
+		
 		
 		//Calibrate button color 
 		if(MainActivity.Page2ChecksComplete){
@@ -145,17 +149,13 @@ public class MainActivity extends Activity {
 			txstatus.setTextColor(Color.RED);
 		}
 		
-		//do other stuff
 		//on first load scrubber=0, set message to store defaults
 		if (MainActivity.ScrubberAccum <1){
 			scrubcal.setText("Set Default");
 		}
 			else{ 
-				//scrubcal.setText(Integer.toString(MainActivity.ScrubberAccum)+ "Min");
 				scrubcal.setText(Integer.toString(MainActivity.ScrubberAccum)+ "Min");
 			};
-		
-		//scrubcal.setText(Integer.toString(MainActivity.ScrubberAccum)+ "Min");
 		o2press.setText(Integer.toString(MainActivity.MainOxygenPSI)+ " psi");
 		dillpress.setText(Integer.toString(MainActivity.MainMix_DillPSINum)+ " psi");
 		bailpress.setText(Integer.toString(MainActivity.MainMix_BailPSINum)+ " psi");
@@ -256,15 +256,11 @@ public class MainActivity extends Activity {
 	public void LaunchSys(View view) {
 	//go to sys screen
 		Intent intent = new Intent(this, SysScreen.class);
-		startActivity(intent);
-		
+		startActivity(intent);	
 	}
 	
 	//called from reset menu item ---------------------------------------------
-	//Clears everything
-	//-------------------------------------------------------------------------
 	public void reset (View view){
-
 	//default preferences	
 	SharedPreferences DP = PreferenceManager.getDefaultSharedPreferences(this);		
 	//set status in preferences to unchecked for Calibrate page (p2)
@@ -291,7 +287,7 @@ public class MainActivity extends Activity {
 	SharedPreferences.Editor editor2 = p3share.edit();
 	
 	//clear the checkboxes on the system screen
-	for (int i= 0; i<37; i++){
+	for (int i= 1; i<37; i++){
 	editor2.putBoolean("Sys_chk"+i,false);
 	}
 	editor2.commit();
@@ -300,25 +296,21 @@ public class MainActivity extends Activity {
 	MainActivity.MainOxygenPercent = 0;
 	MainActivity.MainOxygenCylVolume = 0;
 	MainActivity.MainOxygenPSI = 0;
-	//MainActivity.MainOxygenMetab = 0.8;
 	MainActivity.MinutesOfOxy = 0;
 	//Diluent
 	MainActivity.MainMix_DillO2num = 0;
 	MainActivity.MainMix_DillHEnum = 0;
 	MainActivity.MainMix_DillPSINum = 0;
-	//MainActivity.MainMixDillPO2set = 1.0;
 	MainActivity.DillMOD = 0;
 	//Bailout
 	MainActivity.MainMix_Bai1O2num = 0;
 	MainActivity.MainMix_BailHEnum = 0;
 	MainActivity.MainMix_BailPSINum = 0;
-	//MainActivity.MainMixBailPO2set = 1.4;
 	MainActivity.BailMod = 0;
 	//Deco
 	MainActivity.MainMix_DecoPSI = 0;
 	MainActivity.MainMix_DecoO2num = 0;
 	MainActivity.MainMix_DecoHEnum = 0;
-	//MainActivity.MainMixDecoPO2set = 1.6;
 	MainActivity.DecoMod = 0;
 	//O2 Sensors
 	MainActivity.MainSensor_1_ambient = 0;
@@ -332,22 +324,46 @@ public class MainActivity extends Activity {
 	MainActivity.Page2ChecksComplete = false;
 	MainActivity.Page3ChecksComplete = false;
 	MainActivity.ScrubberAccum = Integer.parseInt(DP.getString("ScrubberAccum", "0"));
-	
-	if(MainActivity.ScrubberAccum >1){
-		//Setup SharedPreferences editor for SysScreen (p3)
-			editor2.putBoolean("Sys_chk"+0,true);
-			editor2.commit();
-	};
-	
+		
 	onCreate(null);
 	}
 	
-	//called from new dive menu item 
+	//called from new dive menu item ---------------------------------------------
 	public void newdive (View view){
 	TextView date = (TextView) findViewById(R.id.date_preformed);
-	date.setText("new dive selected");
+	date.setText("Check System");
+		
+	//set status in preferences to unchecked for Calibrate page (p2)
+	SharedPreferences p2share = getApplicationContext().getSharedPreferences("p2share", android.content.Context.MODE_PRIVATE);	
+	SharedPreferences.Editor editor = p2share.edit();
+	editor.putBoolean("cal_c1", false);
+	editor.commit();
 	
+	//setup SharedPreferences editor for SysScreen (p3)
+	SharedPreferences p3share = getApplicationContext().getSharedPreferences("p3share", android.content.Context.MODE_PRIVATE);	
+	SharedPreferences.Editor editor2 = p3share.edit();
+	
+	//reset the checkboxes on the system screen
+	editor2.putBoolean("Sys_chk"+1,false);
+	editor2.putBoolean("Sys_chk"+2,false);
+	editor2.putBoolean("Sys_chk"+23,false);
+	editor2.putBoolean("Sys_chk"+27,false);
+	editor2.putBoolean("Sys_chk"+28,false);
+	editor2.putBoolean("Sys_chk"+29,false);
+	editor2.putBoolean("Sys_chk"+30,false);
+	editor2.putBoolean("Sys_chk"+31,false);
+	editor2.putBoolean("Sys_chk"+32,false);
+	editor2.putBoolean("Sys_chk"+33,false);
+	editor2.putBoolean("Sys_chk"+34,false);
+	editor2.putBoolean("Sys_chk"+35,false);
+	editor2.commit();
+	
+	//house variables
+	MainActivity.gascheck=false;
+	MainActivity.Page2ChecksComplete = false;
+	MainActivity.Page3ChecksComplete = false;
+			
+	onCreate(null);
 	}
-	
 		
 }
