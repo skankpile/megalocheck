@@ -106,6 +106,14 @@ public class SysScreen extends Activity {
 		}
 	}
 	
+	if(MainActivity.ScrubberAccum >1){
+		//Setup SharedPreferences editor for SysScreen (p3)
+		//SharedPreferences p3share = getApplicationContext().getSharedPreferences("p3share", android.content.Context.MODE_PRIVATE);	
+		SharedPreferences.Editor editor2 = p3share.edit();
+			editor2.putBoolean("Sys_chk"+0,true);
+			editor2.commit();
+	};
+	
 	//go to main menu
 	Intent intent = new Intent(this, MainActivity.class);
 	startActivity(intent);
@@ -114,16 +122,10 @@ public class SysScreen extends Activity {
 	//called when button "Update" is clicked
 	public void ScrubberTime (View view){
 		
-		
 		TextView updateTime = (TextView) findViewById(R.id.Sys_ScrubberAccMin);
 		TextView remainTime = (TextView) findViewById(R.id.Sys_ScrubberRemainNum);
 		
-		//load buff from scrubber preference default time
-		//PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
-		//SharedPreferences DP = PreferenceManager.getDefaultSharedPreferences(this);
-		//final int buff = Integer.parseInt(DP.getString("ScrubberAccum", "242"));
-		//PreferenceManager.getDefaultSharedPreferences(this).edit().putBoolean(PreferenceManager.KEY_HAS_SET_DEFAULT_VALUES, false).commit();
-		final int buff = 222;
+		//final int buff = 222;
 		//final int addme = Integer.parseInt(updateTime.getText().toString());
 		
 		remainTime.setText(updateTime.getText().toString());
@@ -135,8 +137,9 @@ public class SysScreen extends Activity {
 		//litlbutton.setText("Reset");
 		
 		MainActivity.ScrubberAccum = Integer.parseInt(remainTime.getText().toString());
+		//MainActivity.ScrubLife = MainActivity.ScrubberAccum;
 		
-		
+	
 
 		
 	}

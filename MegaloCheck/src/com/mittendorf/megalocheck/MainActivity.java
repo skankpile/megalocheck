@@ -59,9 +59,8 @@ public class MainActivity extends Activity {
 	public static boolean gascheck=false;
 	public static boolean Page2ChecksComplete = false;
 	public static boolean Page3ChecksComplete = false;
-	public static int ScrubberAccum = 0;					//in preferences
-	
-	
+	public static boolean scrubber_set = false;
+	public static int ScrubberAccum = 0;				//in preferences	
 	
 	
 	
@@ -81,12 +80,11 @@ public class MainActivity extends Activity {
 		MainActivity.MainMixBailPO2set = Double.parseDouble(DP.getString("MainMixBailPO2set", "1.9"));
 		MainActivity.MainMixDecoPO2set = Double.parseDouble(DP.getString("MainMixDecoPO2set", "1.9"));
 		
-	//needs to run after defaults set to update dashboard/main
-		if (MainActivity.ScrubberAccum ==0){
-			MainActivity.ScrubberAccum = Integer.parseInt(DP.getString("ScrubberAccum", "242"));	
+	//needs to run after install & 1st default set to prompt update of defaults
+		if (MainActivity.ScrubberAccum <1){
+			MainActivity.ScrubberAccum = Integer.parseInt(DP.getString("ScrubberAccum", "0"));
 		};
-		
-		
+				
 		//need to add sensors to default parameters
 	   // <EditTextPreference android:key="S1_genesis" android:defaultValue="365"/>
 	   //<EditTextPreference android:key="S2_genesis" android:defaultValue="365"/>
@@ -149,10 +147,12 @@ public class MainActivity extends Activity {
 		
 		//do other stuff
 		//on first load scrubber=0, set message to store defaults
-		if (MainActivity.ScrubberAccum ==0){
+		if (MainActivity.ScrubberAccum <1){
 			scrubcal.setText("Set Default");
 		}
-			else{ scrubcal.setText(Integer.toString(MainActivity.ScrubberAccum)+ "Min");	
+			else{ 
+				//scrubcal.setText(Integer.toString(MainActivity.ScrubberAccum)+ "Min");
+				scrubcal.setText(Integer.toString(MainActivity.ScrubberAccum)+ "Min");
 			};
 		
 		//scrubcal.setText(Integer.toString(MainActivity.ScrubberAccum)+ "Min");
@@ -232,7 +232,6 @@ public class MainActivity extends Activity {
 			case R.id.set_defaults:
 				Intent intent = new Intent(this, prefs.class);
 				startActivity(intent);
-				MainActivity.ScrubberAccum=0;
 				break;
 			}
 			return false;		
@@ -258,6 +257,7 @@ public class MainActivity extends Activity {
 	//go to sys screen
 		Intent intent = new Intent(this, SysScreen.class);
 		startActivity(intent);
+		
 	}
 	
 	//called from reset menu item ---------------------------------------------
@@ -331,7 +331,13 @@ public class MainActivity extends Activity {
 	MainActivity.gascheck=false;
 	MainActivity.Page2ChecksComplete = false;
 	MainActivity.Page3ChecksComplete = false;
-	MainActivity.ScrubberAccum = Integer.parseInt(DP.getString("ScrubberAccum", "242"));
+	MainActivity.ScrubberAccum = Integer.parseInt(DP.getString("ScrubberAccum", "0"));
+	
+	if(MainActivity.ScrubberAccum >1){
+		//Setup SharedPreferences editor for SysScreen (p3)
+			editor2.putBoolean("Sys_chk"+0,true);
+			editor2.commit();
+	};
 	
 	onCreate(null);
 	}
@@ -340,6 +346,7 @@ public class MainActivity extends Activity {
 	public void newdive (View view){
 	TextView date = (TextView) findViewById(R.id.date_preformed);
 	date.setText("new dive selected");
+	
 	}
 	
 		
