@@ -11,6 +11,7 @@
         style="@android:attr/buttonBarStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingTop="5dip"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:background="?android:attr/dividerHorizontal"
@@ -25,7 +26,8 @@
             android:minWidth="50dp"
             android:onClick="LaunchMix"
             android:text="@string/button_Gas"
-            android:textSize="25sp" />
+            android:textSize="25sp"
+            android:drawableTop="@drawable/cylinder_icon" />
 
         <View
             android:layout_width="1dip"
@@ -44,7 +46,8 @@
             android:minWidth="25dp"
             android:onClick="LaunchCalibration"
             android:text="@string/button_Calibration"
-            android:textSize="25sp" />
+            android:textSize="25sp"
+            android:drawableTop="@drawable/head_icon" />
 
         <View
             android:layout_width="1dip"
@@ -62,7 +65,8 @@
             android:minWidth="50dp"
             android:onClick="LaunchSys"
             android:text="@string/button_System"
-            android:textSize="25sp" />
+            android:textSize="25sp"
+            android:drawableTop="@drawable/sysbuild_icon" />
     </LinearLayout>
 
     <TextView
