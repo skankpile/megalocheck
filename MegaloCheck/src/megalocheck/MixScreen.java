@@ -1,4 +1,4 @@
-package com.mittendorf.megalocheck;
+package megalocheck;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
@@ -10,7 +10,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
-import com.mittendorf.megalocheck.R;
+import android.widget.TextView;
+import jm.megalocheck.R;
 
 public class MixScreen extends Activity {
 
@@ -20,6 +21,18 @@ public class MixScreen extends Activity {
 		setContentView(R.layout.activity_mix_screen);
 		// Show the Up button in the action bar.
 		setupActionBar();
+		//populate PSI or BAR	
+		TextView oxunit = (TextView) findViewById(R.id.Mix_OxygenPSI);
+		oxunit.setText(MainActivity.gunit.toUpperCase()+"=");
+				
+		TextView dilunit = (TextView) findViewById(R.id.Mix_DillPSI);
+		dilunit.setText(MainActivity.gunit.toUpperCase()+"=");
+				
+		TextView bailunit = (TextView) findViewById(R.id.Mix_BailPSI);
+		bailunit.setText(MainActivity.gunit.toUpperCase()+"=");
+				
+		TextView decounit = (TextView) findViewById(R.id.Mix_DecoPSI);
+		decounit.setText(MainActivity.gunit.toUpperCase()+"=");
 		
 	//Fill in Oxygen Defaults on Mix load from Public Variables
 		EditText OxygenPercent = (EditText) findViewById(R.id.Mix_OxygenPercent);

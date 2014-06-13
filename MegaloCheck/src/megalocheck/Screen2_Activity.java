@@ -1,4 +1,4 @@
-package com.mittendorf.megalocheck;
+package megalocheck;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
@@ -13,7 +13,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.TextView;
-import com.mittendorf.megalocheck.R;
+import jm.megalocheck.R;
 
 public class Screen2_Activity extends Activity {
 

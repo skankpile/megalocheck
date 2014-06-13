@@ -1,4 +1,6 @@
-package com.mittendorf.megalocheck;
+package megalocheck;
+import jm.megalocheck.R;
+
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
 

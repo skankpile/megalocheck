@@ -1,7 +1,9 @@
-package com.mittendorf.megalocheck;
+package megalocheck;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+
+import jm.megalocheck.R;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -60,6 +62,10 @@ public class MainActivity extends Activity {
 	public static boolean Page3ChecksComplete = false;
 	public static boolean scrubber_set = false;
 	public static int ScrubberAccum = 0;				//in preferences, 0 on start controls logic	
+	public static int Units = 1;						//1=Imperial 2=Metric
+	public static String gunit;
+	public static double gunitMod = 33;
+	public static double gunitMet = .0689;
 	
 	
 	//load the layout
@@ -101,6 +107,7 @@ public class MainActivity extends Activity {
 		MainActivity.MainMixDillPO2set = Double.parseDouble(DP.getString("MainMixDillPO2set", "1.9"));
 		MainActivity.MainMixBailPO2set = Double.parseDouble(DP.getString("MainMixBailPO2set", "1.9"));
 		MainActivity.MainMixDecoPO2set = Double.parseDouble(DP.getString("MainMixDecoPO2set", "1.9"));
+		MainActivity.Units = Integer.parseInt(DP.getString("Unit_Preference", "1"));
 		
 		//needs to run after install & 1st default set to prompt update of defaults
 		if (MainActivity.ScrubberAccum <1){
@@ -118,6 +125,16 @@ public class MainActivity extends Activity {
 	   //<EditTextPreference android:key="S2_genesis" android:defaultValue="365"/>
 	   // <EditTextPreference android:key="S3_genesis" android:defaultValue="365"/>
 		
+		//specify psi/bar & Mod constant based on unit preference
+		if(MainActivity.Units==1){
+			gunit = "psi";
+			gunitMod=33;
+			gunitMet=0.0689;
+			}
+			else {gunit = "bar";
+				gunitMod=10;
+				gunitMet=1;
+			}
 		
 		//Calibrate button color 
 		if(MainActivity.Page2ChecksComplete){
@@ -156,18 +173,27 @@ public class MainActivity extends Activity {
 			else{ 
 				scrubcal.setText(Integer.toString(MainActivity.ScrubberAccum)+ "Min");
 			};
-		o2press.setText(Integer.toString(MainActivity.MainOxygenPSI)+ " psi");
-		dillpress.setText(Integer.toString(MainActivity.MainMix_DillPSINum)+ " psi");
-		bailpress.setText(Integer.toString(MainActivity.MainMix_BailPSINum)+ " psi");
-		decopress.setText(Integer.toString(MainActivity.MainMix_DecoPSI)+ " psi");
-		dillmix.setText(Double.toString(MainActivity.MainMix_DillO2num).format("%02.0f", MainActivity.MainMix_DillO2num)+"/"+(Integer.toString(MainActivity.MainMix_DillHEnum).format("%02d", MainActivity.MainMix_DillHEnum)));
-		bailmix.setText(Double.toString(MainActivity.MainMix_Bai1O2num).format("%02.0f", MainActivity.MainMix_Bai1O2num)+"/"+(Integer.toString(MainActivity.MainMix_BailHEnum).format("%02d", MainActivity.MainMix_BailHEnum)));
-		decomix.setText(Double.toString(MainActivity.MainMix_DecoO2num).format("%02.0f", MainActivity.MainMix_DecoO2num)+"/"+(Integer.toString(MainActivity.MainMix_DecoHEnum).format("%02d", MainActivity.MainMix_DecoHEnum)));
-		
-		
-		//oxygen metabolism minutes
-		MainActivity.MinutesOfOxy = MainActivity.MainOxygenCylVolume * (MainActivity.MainOxygenPSI*0.0689)/MainActivity.MainOxygenMetab;
-		oxymin.setText(Double.toString(MainActivity.MinutesOfOxy).format("%.0f", MainActivity.MinutesOfOxy) + "Min");
+			o2press.setText(Integer.toString(MainActivity.MainOxygenPSI)+ " "+gunit);
+			dillpress.setText(Integer.toString(MainActivity.MainMix_DillPSINum)+ " "+gunit);
+			bailpress.setText(Integer.toString(MainActivity.MainMix_BailPSINum)+ " "+gunit);
+			decopress.setText(Integer.toString(MainActivity.MainMix_DecoPSI)+ " "+gunit);
+			dillmix.setText(Double.toString(MainActivity.MainMix_DillO2num).format("%02.0f", MainActivity.MainMix_DillO2num)+"/"+(Integer.toString(MainActivity.MainMix_DillHEnum).format("%02d", MainActivity.MainMix_DillHEnum)));
+			bailmix.setText(Double.toString(MainActivity.MainMix_Bai1O2num).format("%02.0f", MainActivity.MainMix_Bai1O2num)+"/"+(Integer.toString(MainActivity.MainMix_BailHEnum).format("%02d", MainActivity.MainMix_BailHEnum)));
+			decomix.setText(Double.toString(MainActivity.MainMix_DecoO2num).format("%02.0f", MainActivity.MainMix_DecoO2num)+"/"+(Integer.toString(MainActivity.MainMix_DecoHEnum).format("%02d", MainActivity.MainMix_DecoHEnum)));
+			
+			
+			//oxygen metabolism minutes
+			MainActivity.MinutesOfOxy = MainActivity.MainOxygenCylVolume * (MainActivity.MainOxygenPSI*gunitMet)/MainActivity.MainOxygenMetab;
+			oxymin.setText(Double.toString(MainActivity.MinutesOfOxy).format("%.0f", MainActivity.MinutesOfOxy) + "Min");
+			
+			//diluent MOD
+			if(MainActivity.MainMix_DillO2num < 1){
+				dillmod.setText("No Dill");
+			}else
+				{
+				MainActivity.DillMOD = ((MainActivity.MainMixDillPO2set) / ((MainActivity.MainMix_DillO2num/100)) - 1 ) * gunitMod;
+				dillmod.setText(Double.toString(MainActivity.DillMOD).format("%.0f", MainActivity.DillMOD) + "MOD");
+				};
 		
 		//diluent MOD
 		if(MainActivity.MainMix_DillO2num < 1){

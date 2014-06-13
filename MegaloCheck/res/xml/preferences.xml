@@ -2,6 +2,12 @@
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"  android:title="Default Preferences">
     
+    <ListPreference
+         android:key="Unit_Preference"
+         android:entries="@array/UnitEntry"
+         android:entryValues="@array/UnitValue"
+         android:title="Select Units"/>
+    
     <EditTextPreference
          android:key="MainOxygenMetab"
          android:defaultValue="0.8"
