@@ -195,21 +195,13 @@ public class MainActivity extends Activity {
 				dillmod.setText(Double.toString(MainActivity.DillMOD).format("%.0f", MainActivity.DillMOD) + "MOD");
 				};
 		
-		//diluent MOD
-		if(MainActivity.MainMix_DillO2num < 1){
-			dillmod.setText("No Dill");
-		}else
-			{
-			MainActivity.DillMOD = ((MainActivity.MainMixDillPO2set) / ((MainActivity.MainMix_DillO2num/100)) - 1 ) * 33;
-			dillmod.setText(Double.toString(MainActivity.DillMOD).format("%.0f", MainActivity.DillMOD) + "MOD");
-			};
-			
+
 		//Bailout MOD
 		if(MainActivity.MainMix_Bai1O2num < 1){
 			bailmod.setText("No Bail");
 		}else
 			{
-			MainActivity.BailMod = ((MainActivity.MainMixBailPO2set) / ((MainActivity.MainMix_Bai1O2num/100)) - 1 ) * 33;
+			MainActivity.BailMod = ((MainActivity.MainMixBailPO2set) / ((MainActivity.MainMix_Bai1O2num/100)) - 1 ) * gunitMod;
 			bailmod.setText(Double.toString(MainActivity.BailMod).format("%.0f", MainActivity.BailMod) + "MOD");
 			};	
 
@@ -218,7 +210,7 @@ public class MainActivity extends Activity {
 			decomod.setText("No Deco");
 		}else
 			{
-			MainActivity.DecoMod = ((MainActivity.MainMixDecoPO2set) / ((MainActivity.MainMix_DecoO2num/100)) - 1 ) * 33;
+			MainActivity.DecoMod = ((MainActivity.MainMixDecoPO2set) / ((MainActivity.MainMix_DecoO2num/100)) - 1 ) * gunitMod;
 			decomod.setText(Double.toString(MainActivity.DecoMod).format("%.0f", MainActivity.DecoMod) + "MOD");
 			};	
 			
